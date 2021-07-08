@@ -8,6 +8,7 @@ import { useState } from 'react';
 function App() {
 
   const [query, setQuery] = useState();
+  const pageno = 1
   
   return (
     <div className="App">
@@ -15,7 +16,7 @@ function App() {
       <input type="text" onChange={(event) => setQuery(event.target.value)}/>
       {/* {console.log(query)} */}
     </div>
-      {query ? <Search keyword = {query}/> : <Api/>}
+      {query ? <Search page={pageno} keyword = {query}/> : <Api/>}
     </div>
   );
 }
