@@ -1,8 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 
-const Search = () => {
-
+const Search = (props) => {
     function SearchImages(query) {
         const [state, setState] = useState([]);
         useEffect(() => {
@@ -22,8 +21,8 @@ const Search = () => {
         return `https://live.staticflickr.com/${server}/${id}_${secret}_q.jpg`;
     }
 
-    const data = SearchImages();
-
+    const data = SearchImages(props.keyword);
+    console.log(data)
 
     return (
         <div>
