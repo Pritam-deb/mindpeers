@@ -1,11 +1,14 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 import InfiniteScroll from 'react-infinite-scroll-component';
+import ImageGrid from './ImageGrid';
+import Modal from './Modal';
 
-const perPage = 12
+const perPage = 24
 const Search = (props) => {
     const [state, setState] = useState([]);
     const [index, setIndex] = useState(1);
+    const [selectedImg,setSelectedImg] = useState(null);
     useEffect(() => {
         SearchImages(props.keyword);
     },[index])
@@ -25,7 +28,6 @@ const Search = (props) => {
 
     
 
-
     return (
         <div>
             <InfiniteScroll
@@ -43,6 +45,10 @@ const Search = (props) => {
                 
                 })}
             </div>
+            <ImageGrid setSelectedImg={setSelectedImg} data={state} />
+            { selectedImg && (
+                <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+            )}
             </InfiniteScroll>
         </div>
         

@@ -17,6 +17,8 @@ function App() {
       {/* {console.log(query)} */}
     </div>
       {query ? <Search page={pageno} keyword = {query}/> : <Api/>}
+
+      
     </div>
   );
 }
